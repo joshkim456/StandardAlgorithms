@@ -45,6 +45,7 @@
 				24714C072AFA48330046D004 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		24714C072AFA48330046D004 /* Products */ = {
 			isa = PBXGroup;
