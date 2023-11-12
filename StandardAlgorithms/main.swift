@@ -7,9 +7,12 @@
 
 import Foundation
 
-var a = 5
-a += 7
+// Split list in 2 until it cannot be split further
+// lo, mid, hi
+// mid = (lo+hi) / 2
 
-let b = "HI EVERYONE I'm LOSING MY VOICE"
+let merging = MergeSort()
 
-print("A is now: \(a)")
+let sortedArray = merging.mergeSort([1, 3, 4, 2, -5, -2])
+
+print(sortedArray)
