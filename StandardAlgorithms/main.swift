@@ -11,8 +11,8 @@ import Foundation
 // lo, mid, hi
 // mid = (lo+hi) / 2
 
-let merging = MergeSort()
+let quicksorting = QuickSort()
 
-let sortedArray = merging.mergeSort([1, 3, 4, 2, -5, -2])
+let sortedArray = quicksorting.quickSort([1, 3, 5, 4, 4, 2])
 
-print(sortedArray)
+print("Sorted:",sortedArray)

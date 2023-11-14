@@ -8,7 +8,7 @@ final class SortingTests: XCTestCase {
         let expected: [Int]
     }
     
-    func testAlgoWithValidArrays() {
+    func testMergeSortWithValidArrays() {
         
         //arrange
         let merging = MergeSort()
@@ -41,7 +41,7 @@ final class SortingTests: XCTestCase {
         }
     }
     
-    func testAlgoWithErroneousArrays() {
+    func testMergeSortWithErroneousArrays() {
         //arrange
         let merging = MergeSort()
         
@@ -66,7 +66,7 @@ final class SortingTests: XCTestCase {
         
     }
     
-    func testAlgoWithBoundaryCaseArrays() {
+    func testMergeSortWithBoundaryCaseArrays() {
         // arrange
         let merging = MergeSort()
         
@@ -91,6 +91,102 @@ final class SortingTests: XCTestCase {
         print("Testing with very long length Array: ")
         XCTAssertEqual(veryLongLengthArrayExpected, merging.mergeSort(veryLongLengthArray))
         
+    }
+    
+    func testQuickSortWithValidArrays() {
+        
+        //arrange
+        let quicksorting = QuickSort()
+        
+        var size_5_random = [Int]()
+        for _ in 0..<5 {
+            size_5_random.append(Int.random(in: -10...10))
+        }
+        
+        var size_10_random = [Int]()
+        for _ in 0..<10 {
+            size_10_random.append(Int.random(in: -10...10))
+        }
+        
+        var size_15_random = [Int]()
+        for _ in 0..<15 {
+            size_15_random.append(Int.random(in: -10...10))
+        }
+        
+        let tests = [size_5_random, size_10_random, size_15_random]
+        
+        //act + assert
+        
+        for i in 0..<3 {
+            var expected = tests[i]
+            expected.sort()
+            
+            print("Testing with array of \((i+1)*5) random integers")
+            XCTAssertEqual(expected, quicksorting.quickSort(tests[i]))
+        }
+    }
+    
+    func testQuickSortWithErroneousArrays() {
+        //arrange
+        let quicksorting = QuickSort()
+        
+        // var exceedingIntegerLimits = [100000000000000, 1284712946815735123812, 123618263193619362936, -129749124961283582163921, -127497129379127391293712] Cannot be initialsed
+        
+        let stringTypesArray = ["Hello", "World", ".", "!"]
+                
+        let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+        
+        //act + assert
+        var stringTypesArrayExpected = stringTypesArray
+        stringTypesArrayExpected.sort()
+        
+        var allSameExpected = allSame
+        allSameExpected.sort()
+        
+        print("Testing with Array of strings")
+        // XCTAssertEqual(stringTypesArrayExpected, merging.mergeSort(stringTypesArray)) Cannot be called (yet)
+        
+        print("Testing with array with all the same numbers: ")
+        XCTAssertEqual(allSameExpected, quicksorting.quickSort(allSame))
+        
+    }
+    
+    func testQuickSortWithBoundaryCaseArrays() {
+        // arrange
+        let quicksorting = QuickSort()
+        
+        let zeroLength = [Int]()
+        
+        var veryLongLengthArray = [Int]()
+        for _ in 0..<100000000 {
+            veryLongLengthArray.append(Int.random(in: -100...100))
+        }
+        
+        //act + assert
+        
+        var zeroLengthExpected = zeroLength
+        zeroLengthExpected.sort()
+        
+        var veryLongLengthArrayExpected = veryLongLengthArray
+        veryLongLengthArrayExpected.sort()
+        
+        print("Testing with Zero Length Array: ")
+        XCTAssertEqual(zeroLengthExpected, quicksorting.quickSort(zeroLength))
+        
+        print("Testing with very long length Array: ")
+        XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
+        
+    }
+    
+    func testTemp() {
+        let quicksorting = QuickSort()
+
+        let sortedArray = quicksorting.quickSort([-10, -7, -4, -3, 8, 7, 6, 2, -2, 8])
+        
+        var expected = sortedArray
+        expected.sort()
+        
+        XCTAssertEqual(expected, sortedArray)
     }
 }
 

@@ -38,6 +38,48 @@ class MergeSort {
     }
 }
 
+class QuickSort {
+    
+    func quickSort(_ data: [Int]) -> [Int] {
+        if data.count <= 1 {
+            return data
+        }
+
+        let firstPivot = data[0]
+        let sorted = placePivot(data, firstPivot)
+        
+        return sorted
+    }
+    
+    func placePivot(_ data: [Int], _ pivot: Int) -> [Int] {
+        //returns array with pivot correctly in place
+
+        var left = [Int]()
+        var right = [Int]()
+        
+        for i in 1...data.count-1 {
+            if data[i] <= pivot {
+                left.append(data[i])
+            } else {
+                right.append(data[i])
+            }
+        }
+        
+        print(left, pivot, right)
+        
+        if left.count <= 1 {
+            return left + Array([pivot]) + right
+        }
+        if right.count <= 1 {
+            return left + Array([pivot]) + right
+        }
+        
+        return placePivot(Array(left[0...]), left[0]) + Array([pivot]) + placePivot(Array(right[0...]), right[0])
+        
+    }
+}
+
+
 
 
 
