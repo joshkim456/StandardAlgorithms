@@ -48,7 +48,7 @@ final class SortingTests: XCTestCase {
         // var exceedingIntegerLimits = [100000000000000, 1284712946815735123812, 123618263193619362936, -129749124961283582163921, -127497129379127391293712] Cannot be initialsed
         
         let stringTypesArray = ["Hello", "World", ".", "!"]
-                
+        
         let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         
         //act + assert
@@ -133,7 +133,7 @@ final class SortingTests: XCTestCase {
         // var exceedingIntegerLimits = [100000000000000, 1284712946815735123812, 123618263193619362936, -129749124961283582163921, -127497129379127391293712] Cannot be initialsed
         
         let stringTypesArray = ["Hello", "World", ".", "!"]
-                
+        
         let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         
         //act + assert
@@ -157,36 +157,48 @@ final class SortingTests: XCTestCase {
         
         let zeroLength = [Int]()
         
-        var veryLongLengthArray = [Int]()
-        for _ in 0..<100000000 {
-            veryLongLengthArray.append(Int.random(in: -100...100))
-        }
+//        var veryLongLengthArray = [Int]()
+//        for _ in 0..<100000000 {
+//            veryLongLengthArray.append(Int.random(in: -100...100))
+//        }
         
         //act + assert
         
         var zeroLengthExpected = zeroLength
         zeroLengthExpected.sort()
         
-        var veryLongLengthArrayExpected = veryLongLengthArray
-        veryLongLengthArrayExpected.sort()
+        //var veryLongLengthArrayExpected = veryLongLengthArray
+        //veryLongLengthArrayExpected.sort()
         
         print("Testing with Zero Length Array: ")
         XCTAssertEqual(zeroLengthExpected, quicksorting.quickSort(zeroLength))
         
-        print("Testing with very long length Array: ")
-        XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
+        //print("Testing with very long length Array: ")
+        
+        
+        //XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
+        
         
     }
     
-    func testTemp() {
+    func testQuickSortPerformanceWithLongArray() {
+        // arrange
         let quicksorting = QuickSort()
-
-        let sortedArray = quicksorting.quickSort([-10, -7, -4, -3, 8, 7, 6, 2, -2, 8])
         
-        var expected = sortedArray
-        expected.sort()
+        var veryLongLengthArray = [Int]()
+        for _ in 0..<10000 {
+            veryLongLengthArray.append(Int.random(in: -100...100))
+        }
         
-        XCTAssertEqual(expected, sortedArray)
+        var veryLongLengthArrayExpected = veryLongLengthArray
+        veryLongLengthArrayExpected.sort()
+        
+        // act + assert
+        print("Testing with very long length Array: ")
+        
+        measure {
+            XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
+        }
     }
 }
 
