@@ -3,11 +3,6 @@ import XCTest
 
 final class SortingTests: XCTestCase {
     
-    struct SortingTestCase {
-        let data: [Int]
-        let expected: [Int]
-    }
-    
     func testMergeSortWithValidArrays() {
         
         //arrange
@@ -169,10 +164,10 @@ final class SortingTests: XCTestCase {
         }
     }
     
-    func testQuickSortWithValidArrays() {
+    func testBubbleSortWithValidArrays() {
         
         //arrange
-        let quicksorting = QuickSort()
+        let bubblesorting = BubbleSort()
         
         let size_5_random = [4, 5, 2, 7, 6]
         
@@ -189,13 +184,13 @@ final class SortingTests: XCTestCase {
             expected.sort()
             
             print("Testing with array of \((i+1)*5) integers")
-            XCTAssertEqual(testsexpected[i], quicksorting.quickSort(tests[i]))
+            XCTAssertEqual(testsexpected[i], bubblesorting.bubbleSort(tests[i]))
         }
     }
     
-    func testQuickSortWithErroneousArrays() {
+    func testBubbleSortWithErroneousArrays() {
         //arrange
-        let quicksorting = QuickSort()
+        let bubblesorting = BubbleSort()
                         
         let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         
@@ -204,13 +199,13 @@ final class SortingTests: XCTestCase {
         allSameExpected.sort()
 
         print("Testing with array with all the same numbers: ")
-        XCTAssertEqual(allSameExpected, quicksorting.quickSort(allSame))
+        XCTAssertEqual(allSameExpected, bubblesorting.bubbleSort(allSame))
         
     }
     
-    func testQuickSortWithBoundaryCaseArrays() {
+    func testBubbleSortWithBoundaryCaseArrays() {
         // arrange
-        let quicksorting = QuickSort()
+        let bubblesorting = BubbleSort()
         
         let zeroLength = [Int]()
         
@@ -220,13 +215,13 @@ final class SortingTests: XCTestCase {
         zeroLengthExpected.sort()
         
         print("Testing with Zero Length Array: ")
-        XCTAssertEqual(zeroLengthExpected, quicksorting.quickSort(zeroLength))
+        XCTAssertEqual(zeroLengthExpected, bubblesorting.bubbleSort(zeroLength))
 
     }
     
-    func testQuickSortPerformanceWithLongArray() {
+    func testBubbleSortPerformanceWithLongArray() {
         // arrange
-        let quicksorting = QuickSort()
+        let bubblesorting = BubbleSort()
         
         var veryLongLengthArray = [Int]()
         for _ in 0..<10000 {
@@ -240,7 +235,7 @@ final class SortingTests: XCTestCase {
         print("Testing with very long length Array: ")
         
         measure {
-            XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
+            XCTAssertEqual(veryLongLengthArrayExpected, bubblesorting.bubbleSort(veryLongLengthArray))
         }
     }
 }
