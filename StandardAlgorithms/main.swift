@@ -9,4 +9,4 @@ import Foundation
 
 let bsearching = BinarySearch()
 
-print(bsearching.binarySearch([1, 2, 4, 6, 10], 4))
+print(bsearching.binarySearch([1, 5, 7, 8, 10, 11, 45, 69], 69))

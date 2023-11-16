@@ -14,15 +14,15 @@ class BinarySearch {
         
         var lo = 0
         var hi = data.count-1
-        var mid = (lo+hi)/2
+        var mid = lo+(hi-lo+1)/2
         
         while lo < hi {
             if data[mid] < target {
-                lo = mid+1
-                mid = (lo+hi)/2
+                lo = mid
+                mid = lo+(hi-lo+1)/2
             } else if data[mid] > target {
                 hi = mid-1
-                mid = (lo+hi)/2
+                mid = lo+(hi-lo+1)/2
             } else {
                 found = true
                 index = mid
@@ -30,6 +30,22 @@ class BinarySearch {
             }
         }
         
+        return (found, index)
+    }
+}
+
+class LinearSearch {
+    func linearSearch(_ data: [Int], _ target: Int) -> (Bool, Int) {
+        var found = false
+        var index = 0
+        
+        for (i, number) in data.enumerated() {
+            if number == target {
+                found = true
+                index = i
+                return (found, index)
+            }
+        }
         return (found, index)
     }
 }
