@@ -8,3 +8,5 @@
 import Foundation
 
 let bsearching = BinarySearch()
+
+print(bsearching.binarySearch([1, 2, 4, 6, 10], 4))
