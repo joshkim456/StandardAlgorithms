@@ -77,7 +77,7 @@ class BubbleSort {
             sorted.append(number)
         }
         
-        for i in 0...sorted.count-2 {
+        for _ in 0...sorted.count-2 {
             for j in 0...sorted.count-2 {
                 if sorted[j] > sorted[j+1] {
                     let temp = sorted[j]
