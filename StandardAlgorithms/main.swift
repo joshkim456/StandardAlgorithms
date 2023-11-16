@@ -11,8 +11,7 @@ import Foundation
 // lo, mid, hi
 // mid = (lo+hi) / 2
 
-let quicksorting = QuickSort()
+let bubble = BubbleSort()
 
-let sortedArray = quicksorting.quickSort([1, 3, 5, 4, 4, 2])
-
-print("Sorted:",sortedArray)
+var sorted = bubble.bubbleSort([4, 2, 3, 6])
+print(sorted)

@@ -68,6 +68,29 @@ class QuickSort {
     }
 }
 
+class BubbleSort {
+    func bubbleSort( _ data: [Int]) -> [Int] {
+        
+        var sorted = [Int]()
+        
+        for number in data {
+            sorted.append(number)
+        }
+        
+        for i in 0...sorted.count-2 {
+            for j in i...sorted.count-2 {
+                if sorted[j] > sorted[j+1] {
+                    let temp = sorted[j]
+                    sorted[j] = sorted[j+1]
+                    sorted[j+1] = temp
+                }
+            }
+        }
+                
+        return sorted
+    }
+}
+
 
 
 
