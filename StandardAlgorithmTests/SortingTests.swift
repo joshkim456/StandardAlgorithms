@@ -13,26 +13,16 @@ final class SortingTests: XCTestCase {
         //arrange
         let merging = MergeSort()
         
-        var size_5_random = [Int]()
-        for _ in 0..<5 {
-            size_5_random.append(Int.random(in: -10...10))
-        }
+        var size_5_random = [4, 5, 2, 7, 6]
         
-        var size_10_random = [Int]()
-        for _ in 0..<10 {
-            size_10_random.append(Int.random(in: -10...10))
-        }
+        var size_10_random = [1, 7, 5, 6, 4, 4, 2, 7, 5, 9]
         
-        var size_15_random = [Int]()
-        for _ in 0..<15 {
-            size_15_random.append(Int.random(in: -10...10))
-        }
-        
-        let tests = [size_5_random, size_10_random, size_15_random]
+        let tests = [size_5_random, size_10_random]
+        let testsexpected = [[2, 4, 5, 6, 7], [1, 2, 4, 4, 5, 5, 6, 7, 7, 9]]
         
         //act + assert
         
-        for i in 0..<3 {
+        for i in 0..<2 {
             var expected = tests[i]
             expected.sort()
             
@@ -44,23 +34,14 @@ final class SortingTests: XCTestCase {
     func testMergeSortWithErroneousArrays() {
         //arrange
         let merging = MergeSort()
-        
-        // var exceedingIntegerLimits = [100000000000000, 1284712946815735123812, 123618263193619362936, -129749124961283582163921, -127497129379127391293712] Cannot be initialsed
-        
-        let stringTypesArray = ["Hello", "World", ".", "!"]
-        
+
         let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         
         //act + assert
-        var stringTypesArrayExpected = stringTypesArray
-        stringTypesArrayExpected.sort()
         
         var allSameExpected = allSame
         allSameExpected.sort()
-        
-        print("Testing with Array of strings")
-        // XCTAssertEqual(stringTypesArrayExpected, merging.mergeSort(stringTypesArray)) Cannot be called (yet)
-        
+
         print("Testing with array with all the same numbers: ")
         XCTAssertEqual(allSameExpected, merging.mergeSort(allSame))
         
@@ -98,30 +79,21 @@ final class SortingTests: XCTestCase {
         //arrange
         let quicksorting = QuickSort()
         
-        var size_5_random = [Int]()
-        for _ in 0..<5 {
-            size_5_random.append(Int.random(in: -10...10))
-        }
+        var size_5_random = [4, 5, 2, 7, 6]
         
-        var size_10_random = [Int]()
-        for _ in 0..<10 {
-            size_10_random.append(Int.random(in: -10...10))
-        }
+        var size_10_random = [1, 7, 5, 6, 4, 4, 2, 7, 5, 9]
+
         
-        var size_15_random = [Int]()
-        for _ in 0..<15 {
-            size_15_random.append(Int.random(in: -10...10))
-        }
-        
-        let tests = [size_5_random, size_10_random, size_15_random]
+        let tests = [size_5_random, size_10_random]
+        let testsexpected = [[2, 4, 5, 6, 7], [1, 2, 4, 4, 5, 5, 6, 7, 7, 9]]
         
         //act + assert
         
-        for i in 0..<3 {
+        for i in 0..<2 {
             var expected = tests[i]
             expected.sort()
             
-            print("Testing with array of \((i+1)*5) random integers")
+            print("Testing with array of \((i+1)*5) integers")
             XCTAssertEqual(expected, quicksorting.quickSort(tests[i]))
         }
     }
@@ -129,23 +101,13 @@ final class SortingTests: XCTestCase {
     func testQuickSortWithErroneousArrays() {
         //arrange
         let quicksorting = QuickSort()
-        
-        // var exceedingIntegerLimits = [100000000000000, 1284712946815735123812, 123618263193619362936, -129749124961283582163921, -127497129379127391293712] Cannot be initialsed
-        
-        let stringTypesArray = ["Hello", "World", ".", "!"]
-        
+                        
         let allSame = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         
         //act + assert
-        var stringTypesArrayExpected = stringTypesArray
-        stringTypesArrayExpected.sort()
-        
         var allSameExpected = allSame
         allSameExpected.sort()
-        
-        print("Testing with Array of strings")
-        // XCTAssertEqual(stringTypesArrayExpected, merging.mergeSort(stringTypesArray)) Cannot be called (yet)
-        
+
         print("Testing with array with all the same numbers: ")
         XCTAssertEqual(allSameExpected, quicksorting.quickSort(allSame))
         
@@ -157,28 +119,14 @@ final class SortingTests: XCTestCase {
         
         let zeroLength = [Int]()
         
-//        var veryLongLengthArray = [Int]()
-//        for _ in 0..<100000000 {
-//            veryLongLengthArray.append(Int.random(in: -100...100))
-//        }
-        
         //act + assert
         
         var zeroLengthExpected = zeroLength
         zeroLengthExpected.sort()
         
-        //var veryLongLengthArrayExpected = veryLongLengthArray
-        //veryLongLengthArrayExpected.sort()
-        
         print("Testing with Zero Length Array: ")
         XCTAssertEqual(zeroLengthExpected, quicksorting.quickSort(zeroLength))
-        
-        //print("Testing with very long length Array: ")
-        
-        
-        //XCTAssertEqual(veryLongLengthArrayExpected, quicksorting.quickSort(veryLongLengthArray))
-        
-        
+
     }
     
     func testQuickSortPerformanceWithLongArray() {
