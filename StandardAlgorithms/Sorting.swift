@@ -100,8 +100,8 @@ class InsertionSort {
             
             while j >= 0 && sorted[j] > temp {
                 sorted[j+1] = sorted[j]
-                j = i-1
-                print("running")
+                j = j-1
+                
             }
             
             sorted[j+1] = temp
