@@ -7,6 +7,8 @@
 
 import Foundation
 
-let bsearching = BinarySearch()
+let isorting = InsertionSort()
 
-print(bsearching.binarySearch([1, 5, 7, 8, 10, 11, 45, 69], 69))
+var data = [5, 2, 3, -5, 7, 10]
+data = isorting.insertionSort(data)
+print(data)

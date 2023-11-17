@@ -49,18 +49,15 @@ final class SearchingTests: XCTestCase {
         }
     }
     
-    func testLinearSearchWithMediumLengthSortedArraysWhichAreOddAndEvenLength() {
+    func testLinearSearchWithBoundaryCaseArrays() {
         //arrange
         let lsearching = LinearSearch()
         
-        let tests = [[1, 2, 4, 6, 10], [1, 5, 7, 8, 10, 11, 45, 69]]
-        
-        let targets = [4, 69]
+        let emptyArray = [Int]()
+        let target = 0
         
         //act + assert
-        for i in 0..<2 {
-            XCTAssertEqual(true, lsearching.linearSearch(tests[i], targets[i]).0)
-        }
+        XCTAssertEqual(false, lsearching.linearSearch(emptyArray, target).0)
     }
     
 }
