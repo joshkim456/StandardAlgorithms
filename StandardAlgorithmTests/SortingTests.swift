@@ -98,7 +98,7 @@ final class SortingTests: XCTestCase {
         var size_500_array_expected = size_500_array
         size_500_array_expected.sort()
         
-        // act + assert
+        // act + assert (Comment out different tests as needed)
         print("Testing with length 5 array: ")
         measure {
             XCTAssertEqual(size_5_array_expected, mergesorting.mergeSort(size_5_array))
@@ -199,7 +199,7 @@ final class SortingTests: XCTestCase {
         var size_500_array_expected = size_500_array
         size_500_array_expected.sort()
         
-        // act + assert
+        // act + assert (Comment out different tests as needed)
         print("Testing with length 5 array: ")
         measure {
             XCTAssertEqual(size_5_array_expected, quicksorting.quickSort(size_5_array))
@@ -300,7 +300,7 @@ final class SortingTests: XCTestCase {
         var size_500_array_expected = size_500_array
         size_500_array_expected.sort()
         
-        // act + assert
+        // act + assert (Comment out different tests as needed)
         print("Testing with length 5 array: ")
         measure {
             XCTAssertEqual(size_5_array_expected, bubblesorting.bubbleSort(size_5_array))
@@ -401,7 +401,7 @@ final class SortingTests: XCTestCase {
         var size_500_array_expected = size_500_array
         size_500_array_expected.sort()
         
-        // act + assert
+        // act + assert (Comment out different tests as needed)
         print("Testing with length 5 array: ")
         measure {
             XCTAssertEqual(size_5_array_expected, isorting.insertionSort(size_5_array))
